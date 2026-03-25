@@ -38,10 +38,11 @@ layout: center
 # Feedback
 
 <!-- TODO: Replace URL with the actual feedback form link -->
-<QRCode url="https://example.com" :size="200">Feedback form</QRCode>
+<QRCode url="https://moje.czechitas.cz/cs/zpetna-vazba" :size="200">Feedback form</QRCode>
 ---
 layout: center
 ---
-# Thank You
+# Thank You for Your Attention!
+Ondřej Šrámek
 
-[linktr.ee/ondrejsramek](https://linktr.ee/ondrejsramek)
+**Czechitas · DA <Test|Cybersecurity> · 202X**
