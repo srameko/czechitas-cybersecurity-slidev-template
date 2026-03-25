@@ -276,6 +276,70 @@ Replace `REPO_NAME` with the actual repo name.
 
 > The template repo (`czechitas-cybersecurity-slidev-template`) is private — the deploy job fails there by design. The build and PDF export steps still pass and can be verified in CI.
 
+The full workflow (`.github/workflows/deploy-slides.yml`):
+```yaml
+name: Deploy Slides
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Slidev
+        run: npm run build
+
+      - name: Export PDF
+        run: npx slidev export --output dist/REPO_NAME.pdf
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+When creating a repo from this template, replace `REPO_NAME` on the `Export PDF` line with the actual repo name (same value as in `package.json` build script).
+
 ### PDF export
 PDF is exported automatically in CI via:
 ```yaml
