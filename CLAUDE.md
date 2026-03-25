@@ -17,6 +17,11 @@ Then update `slides.md`:
 - Cover slide heading
 - Bio slide details (name, subtitle, bullets, QR link)
 
+Enable GitHub Pages in the new repo:
+- Repo must be **public**
+- Go to Settings → Pages → Source → set to **GitHub Actions**
+- Without this the deploy job will fail with HTTP 404
+
 ---
 
 ## Repository structure
