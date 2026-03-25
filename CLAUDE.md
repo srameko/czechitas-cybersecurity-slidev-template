@@ -18,9 +18,10 @@ Then update `slides.md`:
 - Bio slide details (name, subtitle, bullets, QR link)
 
 Enable GitHub Pages in the new repo:
-- Repo must be **public**
-- Go to Settings → Pages → Source → set to **GitHub Actions**
+- Repo must be **public** (Pages is not available for private repos on the free plan)
+- Go to **Settings → Pages → Source** → set to **GitHub Actions**
 - Without this the deploy job will fail with HTTP 404
+- The template repo itself is private — deploy fails there by design, that is expected and OK
 
 ---
 
@@ -269,6 +270,12 @@ The base path is baked into the `build` script in `package.json`:
 ```
 Replace `REPO_NAME` with the actual repo name.
 
+**Prerequisites for deploy to work:**
+1. Repo must be **public**
+2. GitHub Pages must be enabled: Settings → Pages → Source → **GitHub Actions**
+
+> The template repo (`czechitas-cybersecurity-slidev-template`) is private — the deploy job fails there by design. The build and PDF export steps still pass and can be verified in CI.
+
 ### PDF export
 PDF is exported automatically in CI via:
 ```yaml
@@ -343,6 +350,7 @@ This repository (`czechitas-cybersecurity-slidev-template`) is the **source of t
 4. Check `slides.md` cover slide — has `layout: cover` with `subtitle`, `author`, `date` props
 5. Check feedback slide is present before "Thank You" with a real QR URL (not `example.com`)
 6. Verify `public/ondrej.png` exists
+7. Verify repo is **public** and GitHub Pages is enabled: Settings → Pages → Source → **GitHub Actions**
 
 ---
 
@@ -355,3 +363,5 @@ This repository (`czechitas-cybersecurity-slidev-template`) is the **source of t
 - **Wrong layout name** — chapter divider slides use `layout: section`, not `layout: subtitle`. There is no `subtitle` layout in the theme.
 - **PDF export failing** — do not add `playwright install-deps` to CI; `playwright-chromium` in devDependencies is sufficient.
 - **REPO_NAME not replaced** — `package.json` and `.github/workflows/deploy-slides.yml` both contain `REPO_NAME` placeholder; replace both before first deploy.
+- **Deploy fails with HTTP 404** — GitHub Pages is not enabled or the repo is private. Go to Settings → Pages → Source → GitHub Actions. Repo must be public.
+- **Deploy fails in the template repo** — expected, the template repo is private. Build and PDF export still run and pass.
