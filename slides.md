@@ -10,6 +10,11 @@ fonts:
   sans: Open Sans
   mono: Source Code Pro
 ---
+layout: cover
+subtitle: Digital Academy — Cybersecurity
+author: Ondřej Šrámek
+date: Month YYYY
+---
 # Course Title
 ---
 layout: bio
@@ -27,6 +32,13 @@ src: ./slides/00-agenda.md
 ---
 src: ./slides/01-topic.md
 ---
+---
+layout: center
+---
+# Feedback
+
+<!-- TODO: Replace URL with the actual feedback form link -->
+<QRCode url="https://example.com" :size="200">Feedback form</QRCode>
 ---
 layout: center
 ---

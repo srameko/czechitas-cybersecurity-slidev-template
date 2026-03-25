@@ -1,6 +1,5 @@
-# czechitas-cybersecurity-slidev-template
-Slidev Template for Czechitas Cyber Security Classes
-=======
+# Slidev Template for Czechitas Cyber Security Classes
+
 # Course Title
 
 One paragraph describing what the presentation covers and which Czechitas course it belongs to.
