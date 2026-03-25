@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # czechitas-cybersecurity-slidev-template
 Slidev Template for Czechitas Cyber Security Classes
 =======
@@ -25,4 +24,3 @@ https://srameko.github.io/REPO_NAME/
 ## Download PDF
 
 [REPO_NAME.pdf](https://srameko.github.io/REPO_NAME/REPO_NAME.pdf)
->>>>>>> ad4bb43 (Initial template)
