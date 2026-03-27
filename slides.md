@@ -1,21 +1,21 @@
 ---
 theme: ./theme
-title: Course Title
+title: "Course Title"
+info: "Description"
 author: Lecturer Name
-date: Month YYYY
 mdc: true
 shiki:
   theme: github-light
+favicon: /favicon.png  
 fonts:
   sans: Open Sans
   mono: Source Code Pro
 ---
-layout: cover
-subtitle: Digital Academy — Cybersecurity
-author: Ondřej Šrámek
-date: Month YYYY
----
 # Course Title
+
+Description
+
+Lecturer Name · Czechitas · Month 202X
 ---
 layout: bio
 image: /ondrej.png
