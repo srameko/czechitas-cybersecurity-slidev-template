@@ -43,6 +43,9 @@ layout: center
 layout: center
 ---
 # Thank You for Your Attention!
+
+<img src="/czechitas-heart-hands.png" class="h-80 mx-auto" />
+
 Ondřej Šrámek
 
 **Czechitas · DA <Test|Cybersecurity> · 202X**
