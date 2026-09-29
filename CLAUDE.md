@@ -232,6 +232,8 @@ layout: center
 ---
 # Thank You
 
+<img src="/czechitas-heart-hands.png" class="h-80 mx-auto" />
+
 [linktr.ee/ondrejsramek](https://linktr.ee/ondrejsramek)
 ```
 
